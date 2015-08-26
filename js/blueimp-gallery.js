@@ -380,7 +380,9 @@
 
         play: function (time) {
             var that = this;
-            if (this.options.hideControlsOnSlideshow) this.container.removeClass(this.options.controlsClass);
+            if (this.options.hideControlsOnSlideshow) {
+                this.container.removeClass(this.options.controlsClass);
+            }
             window.clearTimeout(this.timeout);
             this.interval = time || this.options.slideshowInterval;
             if (this.elements[this.index] > 1) {
@@ -881,16 +883,18 @@
             }
             else if (isTarget(options.downloadClass)) {
                 // Click on "download" control
-                if (this.list[this.getIndex()] && typeof this.list[this.getIndex()].download_href != 'undefined')
+                if (this.list[this.getIndex()] && typeof this.list[this.getIndex()].download_href !== 'undefined')
                 {
-                	event.target.href = this.list[this.getIndex()].download_href;
+                    event.target.href = this.list[this.getIndex()].download_href;
                 }
                 else
                 {
-                	event.target.href = this.list[this.getIndex()].href;
+                    event.target.href = this.list[this.getIndex()].href;
                 }
             
-                if (typeof event.target.download != 'undefined') event.target.download = this.list[this.getIndex()].title;
+                if (typeof event.target.download !== 'undefined') {
+                    event.target.download = this.list[this.getIndex()].title;
+                }
             }
             else if (parent === this.slidesContainer[0]) {
                 // Click on slide background
@@ -1155,7 +1159,9 @@
         toggleSlideshow: function () {
             if (!this.interval) {
                 this.play();
-                if (this.options.toggleFullscreenOnSlideShow) this.requestFullScreen(this.container[0]);
+                if (this.options.toggleFullscreenOnSlideShow) {
+                    this.requestFullScreen(this.container[0]);
+                }
             } else {
                 this.pause();
             }
